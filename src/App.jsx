@@ -123,6 +123,7 @@ class App extends React.Component {
       paused: false,
       displayTitle: 'Session',
     };
+
     // set this constructor scope
     this.decrementBreakTime = this.decrementBreakTime.bind(this);
     this.decrementSessionTime = this.decrementSessionTime.bind(this);
@@ -160,14 +161,9 @@ class App extends React.Component {
 
   reset() {
     clearInterval(this.timer);
-    const betterBeep = document.getElementById('beep2');
-    if (!betterBeep) {
-      document.getElementById('beep').pause();
-      document.getElementById('beep').currentTime = 0;
-    } else {
-      betterBeep.pause();
-      betterBeep.currentTime = 0;
-    }
+
+    this.beep.pause();
+    this.beep.currentTime = 0;
 
     this.setState({
       breakTimeLength: 5,
@@ -185,12 +181,7 @@ class App extends React.Component {
       }));
     } else {
       // play sound! break time?
-      const betterBeep = document.getElementById('beep2');
-      if (!betterBeep) {
-        document.getElementById('beep').play();
-      } else {
-        betterBeep.play();
-      }
+      this.beep.play();
 
       clearInterval(this.timer);
 
@@ -264,8 +255,11 @@ class App extends React.Component {
         <Footer />
         <audio
           id="beep"
-          src="http://www.pacdv.com/sounds/interface_sound_effects/beep-11.wav"
+          src="./Morning_Circus.mp3"
           preload="auto"
+          ref={(audio) => {
+            this.beep = audio;
+          }}
         />
       </div>
     );
