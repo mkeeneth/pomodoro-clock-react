@@ -19,7 +19,7 @@ test('contains element with id "start_stop"', () => {
   expect(component.find('#start_stop')).toHaveLength(1);
 });
 
-test('#start_stop button is clickable', () => {
+test('#start_stop button is clickable and timer counts down', () => {
   const component = mount(<App />);
   const startTime = component.state().time;
   component.find('#start_stop').simulate('click');
@@ -46,20 +46,28 @@ test('#reset button is clickable and resets state', () => {
 
 test('#break-increment button is clickable', () => {
   const component = mount(<App />);
+  const currentBreakTimeLength = component.state().breakTimeLength;
   component.find('#break-increment').simulate('click');
+  expect(component.state().breakTimeLength).toBeGreaterThan(currentBreakTimeLength);
 });
 
 test('#break-decrement button is clickable', () => {
   const component = mount(<App />);
+  const currentBreakTimeLength = component.state().breakTimeLength;
   component.find('#break-decrement').simulate('click');
+  expect(component.state().breakTimeLength).toBeLessThan(currentBreakTimeLength);
 });
 
 test('#session-increment button is clickable', () => {
   const component = mount(<App />);
+  const currentSessionTimeLength = component.state().sessionTimeLength;
   component.find('#session-increment').simulate('click');
+  expect(component.state().sessionTimeLength).toBeGreaterThan(currentSessionTimeLength);
 });
 
 test('#session-decrement button is clickable', () => {
   const component = mount(<App />);
+  const currentSessionTimeLength = component.state().sessionTimeLength;
   component.find('#session-decrement').simulate('click');
+  expect(component.state().sessionTimeLength).toBeLessThan(currentSessionTimeLength);
 });
