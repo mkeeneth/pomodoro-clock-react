@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { configure, mount } from 'enzyme';
+import { configure, mount, shallow } from 'enzyme';
 
 import Adapter from 'enzyme-adapter-react-16';
 import App from './App';
@@ -9,6 +9,7 @@ configure({ adapter: new Adapter() });
 
 jest.useFakeTimers();
 
+// ==== deep rendering tests ====
 test('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<App />, div);
@@ -71,3 +72,6 @@ test('#session-decrement button is clickable', () => {
   component.find('#session-decrement').simulate('click');
   expect(component.state().sessionTimeLength).toBeLessThan(currentSessionTimeLength);
 });
+
+// ==== shallow rendering tests ====
+// todo: add these

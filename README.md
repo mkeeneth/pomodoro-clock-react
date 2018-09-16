@@ -2,4 +2,4 @@
 
 https://learn.freecodecamp.org/front-end-libraries/front-end-libraries-projects/build-a-pomodoro-clock
 
-it was build using React and Bootstrap.
+it was build using React and Bootstrap. Adding various CI, test coverage and build tools.

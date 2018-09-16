@@ -1,22 +1,10 @@
 import React from 'react';
+import utils from './utils';
 import './App.css';
 
 /* ================================
 libs: reactjs, reactjs-dom
 ================================= */
-
-// global util functions
-function timeFormatter(time) {
-  let minutes = Math.floor(time / 60);
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
-  let seconds = time - minutes * 60;
-  if (seconds < 10) {
-    seconds = `0${seconds}`;
-  }
-  return `${minutes}:${seconds}`;
-}
 
 // ==== functional components ====
 function Footer() {
@@ -250,7 +238,10 @@ class App extends React.Component {
             incrementSessionTime={this.incrementSessionTime}
           />
         </div>
-        <Session time={timeFormatter(this.state.time)} displayTitle={this.state.displayTitle} />
+        <Session
+          time={utils.timeFormatter(this.state.time)}
+          displayTitle={this.state.displayTitle}
+        />
         <Controls start={this.start} reset={this.reset} />
         <Footer />
         <audio
