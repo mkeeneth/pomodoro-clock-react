@@ -1,5 +1,5 @@
-import React from "react";
-import "./App.css";
+import React from 'react';
+import './App.css';
 
 /* ================================
 libs: reactjs, reactjs-dom
@@ -34,20 +34,10 @@ function Controls(props) {
   return (
     <div className="row">
       <div className="col-sm control-buttons">
-        <button
-          className="btn btn-primary"
-          type="button"
-          id="start_stop"
-          onClick={props.start}
-        >
+        <button className="btn btn-primary" type="button" id="start_stop" onClick={props.start}>
           Start / Pause
         </button>
-        <button
-          className="btn btn-danger"
-          type="button"
-          id="reset"
-          onClick={props.reset}
-        >
+        <button className="btn btn-danger" type="button" id="reset" onClick={props.reset}>
           Reset
         </button>
       </div>
@@ -131,7 +121,7 @@ class App extends React.Component {
       time: 25 * 60, // seconds
       running: false,
       paused: false,
-      displayTitle: "Session"
+      displayTitle: 'Session',
     };
 
     // set this constructor scope
@@ -150,14 +140,14 @@ class App extends React.Component {
       let currentTime;
       if (this.state.paused) {
         currentTime = this.state.time;
-      } else if (this.state.displayTitle === "Break") {
+      } else if (this.state.displayTitle === 'Break') {
         currentTime = this.state.breakTimeLength * 60;
       } else {
         currentTime = this.state.sessionTimeLength * 60;
       }
       this.setState((prevState, props) => ({
         running: true,
-        time: currentTime
+        time: currentTime,
       }));
 
       this.decrementTime = this.decrementTime.bind(this);
@@ -180,14 +170,14 @@ class App extends React.Component {
       sessionTimeLength: 25,
       running: false,
       time: 25 * 60,
-      displayTitle: "Session"
+      displayTitle: 'Session',
     });
   }
 
   decrementTime() {
     if (this.state.time > 0) {
       this.setState((prevState, props) => ({
-        time: prevState.time - 1
+        time: prevState.time - 1,
       }));
     } else {
       // play sound! break time?
@@ -199,7 +189,7 @@ class App extends React.Component {
         time: prevState.breakTimeLength,
         running: false,
         paused: false,
-        displayTitle: prevState.displayTitle === "Session" ? "Break" : "Session"
+        displayTitle: prevState.displayTitle === 'Session' ? 'Break' : 'Session',
       }));
       this.start();
     }
@@ -210,7 +200,7 @@ class App extends React.Component {
     e.preventDefault();
     if (this.state.breakTimeLength > 1 && !this.state.running) {
       this.setState((prevState, props) => ({
-        breakTimeLength: prevState.breakTimeLength - 1
+        breakTimeLength: prevState.breakTimeLength - 1,
       }));
     }
   }
@@ -220,7 +210,7 @@ class App extends React.Component {
     if (this.state.sessionTimeLength > 1 && !this.state.running) {
       this.setState((prevState, props) => ({
         sessionTimeLength: prevState.sessionTimeLength - 1,
-        time: (prevState.sessionTimeLength - 1) * 60
+        time: (prevState.sessionTimeLength - 1) * 60,
       }));
     }
   }
@@ -229,7 +219,7 @@ class App extends React.Component {
     e.preventDefault();
     if (this.state.breakTimeLength < 60 && !this.state.running) {
       this.setState((prevState, props) => ({
-        breakTimeLength: prevState.breakTimeLength + 1
+        breakTimeLength: prevState.breakTimeLength + 1,
       }));
     }
   }
@@ -239,7 +229,7 @@ class App extends React.Component {
     if (this.state.sessionTimeLength < 60 && !this.state.running) {
       this.setState((prevState, props) => ({
         sessionTimeLength: prevState.sessionTimeLength + 1,
-        time: (prevState.sessionTimeLength + 1) * 60
+        time: (prevState.sessionTimeLength + 1) * 60,
       }));
     }
   }
@@ -260,17 +250,14 @@ class App extends React.Component {
             incrementSessionTime={this.incrementSessionTime}
           />
         </div>
-        <Session
-          time={timeFormatter(this.state.time)}
-          displayTitle={this.state.displayTitle}
-        />
+        <Session time={timeFormatter(this.state.time)} displayTitle={this.state.displayTitle} />
         <Controls start={this.start} reset={this.reset} />
         <Footer />
         <audio
           id="beep"
           src="./Morning_Circus.mp3"
           preload="auto"
-          ref={audio => {
+          ref={(audio) => {
             this.beep = audio;
           }}
         />
