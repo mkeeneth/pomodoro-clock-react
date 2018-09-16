@@ -10,9 +10,7 @@ const utils = {
     }
     return `${minutes}:${seconds}`;
   },
-  otherUtil(param) {
-    return `Just another util. ${param}`;
-  },
+  // other functions could go here
 };
 
 export default utils;
