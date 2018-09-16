@@ -21,6 +21,7 @@
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
+      "!<rootDir>/src/index.js",
       "!<rootDir>/node_modules/"
     ]
   },
