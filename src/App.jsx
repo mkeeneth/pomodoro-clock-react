@@ -7,97 +7,87 @@ libs: reactjs, reactjs-dom
 ================================= */
 
 // ==== functional components ====
-function Footer() {
-  return (
-    <div className="row">
-      <div className="col-sm created-by">
-        Created by
-        <a href="https://github.com/mkeeneth">Matt Keeneth</a>
+export const Footer = () => (
+  <div className="row">
+    <div className="col-sm created-by">
+      Created by
+      <a href="https://github.com/mkeeneth">Matt Keeneth</a>
+    </div>
+  </div>
+);
+
+export const Controls = props => (
+  <div className="row">
+    <div className="col-sm control-buttons">
+      <button className="btn btn-primary" type="button" id="start_stop" onClick={props.start}>
+        Start / Pause
+      </button>
+      <button className="btn btn-danger" type="button" id="reset" onClick={props.reset}>
+        Reset
+      </button>
+    </div>
+  </div>
+);
+
+export const Session = props => (
+  <div className="row">
+    <div className="col-sm">
+      <h2 id="timer-label">{props.displayTitle}</h2>
+      <div id="time-left" className="session-time">
+        {props.time}
       </div>
     </div>
-  );
-}
+  </div>
+);
 
-function Controls(props) {
-  return (
-    <div className="row">
-      <div className="col-sm control-buttons">
-        <button className="btn btn-primary" type="button" id="start_stop" onClick={props.start}>
-          Start / Pause
-        </button>
-        <button className="btn btn-danger" type="button" id="reset" onClick={props.reset}>
-          Reset
-        </button>
-      </div>
-    </div>
-  );
-}
+export const BreakControl = props => (
+  <div className="col-sm increment-buttons" id="break-label">
+    <h3>Break Length</h3>
+    <button
+      className="btn btn-primary btn-sm"
+      type="button"
+      id="break-decrement"
+      onClick={props.decrementBreakTime}
+    >
+      (-)
+    </button>
+    <span id="break-length">{props.breakTimeLength}</span>
+    <button
+      className="btn btn-primary btn-sm"
+      type="button"
+      id="break-increment"
+      href=""
+      onClick={props.incrementBreakTime}
+    >
+      (+)
+    </button>
+  </div>
+);
 
-function Session(props) {
-  return (
-    <div className="row">
-      <div className="col-sm">
-        <h2 id="timer-label">{props.displayTitle}</h2>
-        <div id="time-left" className="session-time">
-          {props.time}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function BreakControl(props) {
-  return (
-    <div className="col-sm increment-buttons" id="break-label">
-      <h3>Break Length</h3>
-      <button
-        className="btn btn-primary btn-sm"
-        type="button"
-        id="break-decrement"
-        onClick={props.decrementBreakTime}
-      >
-        (-)
-      </button>
-      <span id="break-length">{props.breakTimeLength}</span>
-      <button
-        className="btn btn-primary btn-sm"
-        type="button"
-        id="break-increment"
-        href=""
-        onClick={props.incrementBreakTime}
-      >
-        (+)
-      </button>
-    </div>
-  );
-}
-
-function SessionControl(props) {
-  return (
-    <div className="col-sm increment-buttons" id="session-label">
-      <h3>Session Length</h3>
-      <button
-        className="btn btn-primary btn-sm"
-        type="button"
-        id="session-decrement"
-        href=""
-        onClick={props.decrementSessionTime}
-      >
-        (-)
-      </button>
-      <span id="session-length">{props.sessionTimeLength}</span>
-      <button
-        className="btn btn-primary btn-sm"
-        type="button"
-        id="session-increment"
-        href=""
-        onClick={props.incrementSessionTime}
-      >
-        (+)
-      </button>
-    </div>
-  );
-}
+export const SessionControl = props => (
+  <div className="col-sm increment-buttons" id="session-label">
+    <h3>Session Length</h3>
+    <button
+      className="btn btn-primary btn-sm"
+      type="button"
+      id="session-decrement"
+      href=""
+      onClick={props.decrementSessionTime}
+    >
+      (-)
+    </button>
+    <span id="session-length">{props.sessionTimeLength}</span>
+    <button
+      className="btn btn-primary btn-sm"
+      type="button"
+      id="session-increment"
+      href=""
+      onClick={props.incrementSessionTime}
+    >
+      (+)
+    </button>
+  </div>
+);
 
 // ==== 'smart' components ====
 class App extends React.Component {

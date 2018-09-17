@@ -1,9 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { configure, mount, shallow } from 'enzyme';
+import renderer from 'react-test-renderer';
 
 import Adapter from 'enzyme-adapter-react-16';
 import App from './App';
+import {
+  Footer, Controls, Session, BreakControl, SessionControl,
+} from './App';
 
 configure({ adapter: new Adapter() });
 
@@ -73,5 +77,28 @@ test('#session-decrement button is clickable', () => {
   expect(component.state().sessionTimeLength).toBeLessThan(currentSessionTimeLength);
 });
 
-// ==== shallow rendering tests ====
-// todo: add these
+// ==== snapshot tests ===
+test('footer components renders properly', () => {
+  const component = renderer.create(<Footer />);
+  expect(component.toJSON()).toMatchSnapshot();
+});
+
+test('Controls components renders properly', () => {
+  const component = renderer.create(<Controls />);
+  expect(component.toJSON()).toMatchSnapshot();
+});
+
+test('Session components renders properly', () => {
+  const component = renderer.create(<Session />);
+  expect(component.toJSON()).toMatchSnapshot();
+});
+
+test('BreakControl components renders properly', () => {
+  const component = renderer.create(<BreakControl />);
+  expect(component.toJSON()).toMatchSnapshot();
+});
+
+test('SessionControl components renders properly', () => {
+  const component = renderer.create(<SessionControl />);
+  expect(component.toJSON()).toMatchSnapshot();
+});

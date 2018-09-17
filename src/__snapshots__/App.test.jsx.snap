@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BreakControl components renders properly 1`] = `
+<div
+  className="col-sm increment-buttons"
+  id="break-label"
+>
+  <h3>
+    Break Length
+  </h3>
+  <button
+    className="btn btn-primary btn-sm"
+    id="break-decrement"
+    onClick={undefined}
+    type="button"
+  >
+    (-)
+  </button>
+  <span
+    id="break-length"
+  />
+  <button
+    className="btn btn-primary btn-sm"
+    href=""
+    id="break-increment"
+    onClick={undefined}
+    type="button"
+  >
+    (+)
+  </button>
+</div>
+`;
+
+exports[`Controls components renders properly 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="col-sm control-buttons"
+  >
+    <button
+      className="btn btn-primary"
+      id="start_stop"
+      onClick={undefined}
+      type="button"
+    >
+      Start / Pause
+    </button>
+    <button
+      className="btn btn-danger"
+      id="reset"
+      onClick={undefined}
+      type="button"
+    >
+      Reset
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Session components renders properly 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="col-sm"
+  >
+    <h2
+      id="timer-label"
+    />
+    <div
+      className="session-time"
+      id="time-left"
+    />
+  </div>
+</div>
+`;
+
+exports[`SessionControl components renders properly 1`] = `
+<div
+  className="col-sm increment-buttons"
+  id="session-label"
+>
+  <h3>
+    Session Length
+  </h3>
+  <button
+    className="btn btn-primary btn-sm"
+    href=""
+    id="session-decrement"
+    onClick={undefined}
+    type="button"
+  >
+    (-)
+  </button>
+  <span
+    id="session-length"
+  />
+  <button
+    className="btn btn-primary btn-sm"
+    href=""
+    id="session-increment"
+    onClick={undefined}
+    type="button"
+  >
+    (+)
+  </button>
+</div>
+`;
+
+exports[`footer components renders properly 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="col-sm created-by"
+  >
+    Created by
+    <a
+      href="https://github.com/mkeeneth"
+    >
+      Matt Keeneth
+    </a>
+  </div>
+</div>
+`;
