@@ -77,6 +77,14 @@ test('#session-decrement button is clickable', () => {
   expect(component.state().sessionTimeLength).toBeLessThan(currentSessionTimeLength);
 });
 
+// test decrementTime
+it('decrementTime should subtract 1 second in state obj', () => {
+  const component = mount(<App />);
+  const before = component.state().time;
+  component.instance().decrementTime();
+  expect(component.state().time).toBe(before - 1);
+});
+
 // ==== snapshot tests ===
 test('footer components renders properly', () => {
   const component = renderer.create(<Footer />);
