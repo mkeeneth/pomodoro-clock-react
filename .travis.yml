@@ -5,8 +5,12 @@ node_js:
 cache:
   directories:
     - node_modules
+before_script:
+  - npm install -g codeclimate-test-reporter
 script:
   - npm test -- --coverage # Include coverage when running tests
   - npm run build
 after_script: # Upload coverage reports
   - COVERALLS_REPO_TOKEN=$coveralls_repo_token npm run coveralls
+after_success:
+  - CC_TEST_REPORTER_ID=$cc_test_reporter_id codeclimate < ./coverage/lcov.info
