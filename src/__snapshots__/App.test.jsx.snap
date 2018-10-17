@@ -11,7 +11,6 @@ exports[`BreakControl components renders properly 1`] = `
   <button
     className="btn btn-primary btn-sm"
     id="break-decrement"
-    onClick={undefined}
     type="button"
   >
     (-)
@@ -23,7 +22,6 @@ exports[`BreakControl components renders properly 1`] = `
     className="btn btn-primary btn-sm"
     href=""
     id="break-increment"
-    onClick={undefined}
     type="button"
   >
     (+)
@@ -41,7 +39,6 @@ exports[`Controls components renders properly 1`] = `
     <button
       className="btn btn-primary"
       id="start_stop"
-      onClick={undefined}
       type="button"
     >
       Start / Pause
@@ -49,7 +46,6 @@ exports[`Controls components renders properly 1`] = `
     <button
       className="btn btn-danger"
       id="reset"
-      onClick={undefined}
       type="button"
     >
       Reset
@@ -88,7 +84,6 @@ exports[`SessionControl components renders properly 1`] = `
     className="btn btn-primary btn-sm"
     href=""
     id="session-decrement"
-    onClick={undefined}
     type="button"
   >
     (-)
@@ -100,7 +95,6 @@ exports[`SessionControl components renders properly 1`] = `
     className="btn btn-primary btn-sm"
     href=""
     id="session-increment"
-    onClick={undefined}
     type="button"
   >
     (+)
