@@ -13,6 +13,20 @@ configure({ adapter: new Adapter() });
 
 jest.useFakeTimers();
 
+// jsdom doesnt suport media elements
+window.HTMLMediaElement.prototype.load = () => {
+  /* do nothing */
+};
+window.HTMLMediaElement.prototype.play = () => {
+  /* do nothing */
+};
+window.HTMLMediaElement.prototype.pause = () => {
+  /* do nothing */
+};
+window.HTMLMediaElement.prototype.addTextTrack = () => {
+  /* do nothing */
+};
+
 // ==== deep rendering tests ====
 test('renders without crashing', () => {
   const div = document.createElement('div');
